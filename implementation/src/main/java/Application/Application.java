@@ -4,7 +4,6 @@ import BottleDepositMachine.BottleDepositMachine;
 import BottleDepositMachine.Hardware.Display;
 import Items.Item;
 import Items.ListOfItems;
-
 import java.util.List;
 import java.util.Scanner;
 
