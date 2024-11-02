@@ -147,7 +147,7 @@ public class SupervisoryModule {
 
     public void processBottle(Item item) {
         if (bottleDepositMachine.getCurrentState() == State.READY) {
-            displayMessage("Processing item | please wait.");
+            // displayMessage("Processing item | please wait.");
             scannedItem = barcodeScanner.scan(item);
             if (scannedItem == null) {
                 displayMessage("Cannot deposit the item, please remove item.");

@@ -40,13 +40,13 @@ public class Application {
                 for (int i = 0; i < numberOfBottles; i++) {
                     Item randomItem = items.get(i % items.size()); // Loop through items list if user requests more than available items
                     myBottleDepositMachine.inputBottle(randomItem);
-                    System.out.println("Added bottle: __________________________________ " + randomItem);
+                //    System.out.println("Added bottle:  " + randomItem);
                 }
 
                 myBottleDepositMachine.clickOn("Finish");
 
                 // User chooses between printing receipt or making a donation
-                System.out.println("Please choose an option: _______________________________________________");
+                System.out.println("Please choose an option: ");
                 System.out.println("1. Print the receipt");
                 System.out.println("2. Donation");
                 System.out.print("Enter your choice (1 or 2): ");

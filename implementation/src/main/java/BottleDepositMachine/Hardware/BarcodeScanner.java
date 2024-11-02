@@ -22,7 +22,7 @@ public class BarcodeScanner {
 
 
         if (foundItem != null) {  // if there is a barcode
-            System.out.println("Barcode : " + barcode + "has been scanned");
+          //  System.out.println("Barcode : " + barcode + "has been scanned");
             String[] scannedItem = new String[5];
             scannedItem[0] = item.getCurrentLabel();
             scannedItem[1] = item.getBackLabel().getBarcode();
