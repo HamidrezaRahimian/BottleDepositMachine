@@ -10,59 +10,59 @@ import lombok.Getter;
 
 public class BottleDepositMachine {
 
-@Getter
+    @Getter
     private CardScanner cardScanner;
     private State state;
     private Display display;
     @Getter
     private State currentState;
-    private String ledState;
+    private String ledStatus;
     private EntryPort inputSlot;
-    private SupervisoryModule SupervisoryModule;
-
+    private SupervisoryModule controlUnit;
 
     public BottleDepositMachine(Display display) {
         this.currentState = State.LOCKED;
-        this.ledState = "Rot";
+        this.ledStatus = "Rot";
         this.display = display;
         this.cardScanner = new CardScanner(this);
-        this.SupervisoryModule = new SupervisoryModule (this, cardScanner,display);
+        this.controlUnit = new SupervisoryModule(this, cardScanner, display);
     }
 
     public void changeStateToReady() {
         currentState = State.READY;
-        ledState = "GREEN";
-        System.out.println("The Bottle Deposit Machine is  ready to scan  " + ledState + ").");
+        ledStatus = "GREEN";
+        System.out.println("The Bottle Deposit Machine is ready to scan " + ledStatus + ").");
     }
 
     public void changeStateToLocked() {
         currentState = State.LOCKED;
-        ledState = "RED";
-        System.out.println("The Bottle Deposit Machine is  unable for service  " + ledState + ").");
+        ledStatus = "RED";
+        System.out.println("The Bottle Deposit Machine is unable for service " + ledStatus + ").");
     }
+
     public void changeStateToRequireAction() {
         currentState = State.LOCKED;
-        ledState = "YELLOW";
-        System.out.println("action required: you need to pick up the bottle  " + ledState + ").");
+        ledStatus = "YELLOW";
+        System.out.println("Action required: you need to pick up the bottle " + ledStatus + ").");
     }
-    public void inputBottle(Item item){
-        SupervisoryModule.processBottle(item);
 
+    public void inputBottle(Item item) {
+        controlUnit.processBottle(item);
     }
-    public void scanCard(String employeeId){
-        SupervisoryModule.scanIDCard(employeeId);
-    }
-    public void clickOn(String button){
 
-        if(button == "Finish"){
+    public void scanCard(String employeeId) {
+        controlUnit.scanIDCard(employeeId);
+    }
+
+    public void clickOn(String button) {
+        if (button.equals("Finish")) {
             display.pushFinishButton();
-        } else if (button == "Print the receipt") {
+        } else if (button.equals("Print the receipt")) {
             display.pushRecieptButton();
-        } else if (button == "Donation") {
+        } else if (button.equals("Donation")) {
             display.pushDonationButton();
-        }else{
-            System.out.println("invalid Input"); // it basically cant happen cause there is no other option to choose , however i use it for testing and this stuffs haha
+        } else {
+            System.out.println("Invalid Input");
         }
     }
-
 }

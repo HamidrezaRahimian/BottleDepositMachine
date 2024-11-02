@@ -3,16 +3,16 @@ package BottleDepositMachine.Hardware;
 import BottleDepositMachine.Containers.CompressedBottleBin;
 import Items.Item;
 
-public class Compactor extends CardScanner {
-    private CompressedBottleBin crushedBottleContainer;
+public class Compactor  {
+    private CompressedBottleBin crushedBottelContainer;
 
     public Compactor () {
-        this.crushedBottleContainer =  new CompressedBottleBin();
+        this.crushedBottelContainer =  new CompressedBottleBin();
     }
 
     public void crushItem(Item item) {
         item.setCrushed(true);
-        crushedBottleContainer.addToContainer(item);
+        crushedBottelContainer.addToContainer(item);
 
     }
 }

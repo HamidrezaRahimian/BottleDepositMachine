@@ -4,57 +4,72 @@ import BottleDepositMachine.BottleDepositMachine;
 import BottleDepositMachine.Hardware.Display;
 import Items.Item;
 import Items.ListOfItems;
+
 import java.util.List;
 import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
-
         // Create a scanner to get user input
         Scanner scanner = new Scanner(System.in);
 
+        // Display and Bottle Deposit Machine setup
         Display display = new Display();
-        BottleDepositMachine MyBottleDepositMachine = new BottleDepositMachine(display);
-        MyBottleDepositMachine.scanCard("employeeID1-Alex");
+        BottleDepositMachine myBottleDepositMachine = new BottleDepositMachine(display);
+        myBottleDepositMachine.scanCard("employeeID1-Alex");
 
         // Get the list of items from ListOfItems
         ListOfItems listOfItems = new ListOfItems();
         List<Item> items = listOfItems.getItems();
 
-        //  user to enter the number of bottles however the type is going to be choose randomly  in next 7 lines of code
-        System.out.print("Please enter the number of bottles to add: ");
-        int numberOfBottles = scanner.nextInt();
+        while (true) { // Loop to allow repeated operations
+            try {
+                // Prompt user for the number of bottles to add
+                System.out.print("Please enter the number of bottles to add (or type 'exit' to quit): ");
+                String input = scanner.nextLine();
 
-        System.out.println("Adding " + numberOfBottles + " bottles:");
+                if (input.equalsIgnoreCase("exit")) {
+                    System.out.println("Exiting the application. Thank you!");
+                    break; // Exit the loop if user types 'exit'
+                }
 
-        // Allow the user to select bottles to add
-        for (int i = 0; i < numberOfBottles; i++) {
-            Item randomItem = items.get(i % items.size()); // Loop through items list if user requests more than available items
-            MyBottleDepositMachine.inputBottle(randomItem);
-            System.out.println("Added bottle: " + randomItem);
+                int numberOfBottles = Integer.parseInt(input);
+                System.out.println("Adding " + numberOfBottles + " bottles:");
+
+                // Allow the user to add the specified number of bottles
+                for (int i = 0; i < numberOfBottles; i++) {
+                    Item randomItem = items.get(i % items.size()); // Loop through items list if user requests more than available items
+                    myBottleDepositMachine.inputBottle(randomItem);
+                    System.out.println("Added bottle: __________________________________ " + randomItem);
+                }
+
+                myBottleDepositMachine.clickOn("Finish");
+
+                // User chooses between printing receipt or making a donation
+                System.out.println("Please choose an option: _______________________________________________");
+                System.out.println("1. Print the receipt");
+                System.out.println("2. Donation");
+                System.out.print("Enter your choice (1 or 2): ");
+
+                //int choice = Integer.parseInt(scanner.nextLine());
+                int choice = 1;
+
+                // Process the user's choice
+                if (choice == 1) {
+                    myBottleDepositMachine.clickOn("Print the receipt");
+                } else if (choice == 2) {
+                    myBottleDepositMachine.clickOn("Donation");
+                } else {
+                    System.out.println("Invalid choice. No action taken.");
+                }
+
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid number or 'exit' to quit.");
+            } catch (Exception e) {
+                System.out.println("An error occurred: " + e.getMessage());
+            }
         }
-
-        MyBottleDepositMachine.clickOn("Finish");
-
-        //  user choose between printing receipt or making a donation
-        System.out.println("Please choose an option: _______________________________________________");
-        System.out.println("1. Print the receipt");
-        System.out.println("2. Donation");
-        System.out.print("Enter your choice (1 or 2): ");
-        int choice = scanner.nextInt();
-
-        // Process the user's choice
-        if (choice == 1) {
-            MyBottleDepositMachine.clickOn("Print the receipt");
-        } else if (choice == 2) {
-            MyBottleDepositMachine.clickOn("Donation");
-        } else {
-            System.out.println("Invalid choice. No action taken.");
-        }
-
-
-
-        // Close the scanner so that next customer can use the machine again from the beginig
+        // Close the scanner to free up resources
         scanner.close();
     }
 }
