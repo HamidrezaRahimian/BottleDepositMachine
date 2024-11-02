@@ -33,10 +33,10 @@ public class ReceiptProcessor {
         String type = item[2];
         double price = Double.parseDouble(item[4]);
 
-        if (type.equalsIgnoreCase("Einweg")) {
+        if (type.equalsIgnoreCase("Disposable")) {
             disposableItemsCount++;
             disposableTotal += price;
-        } else if (type.equalsIgnoreCase("Mehrweg")) {
+        } else if (type.equalsIgnoreCase("Reusable")) {
             reusableItemsCount++;
             reusableTotal += price;
         }
