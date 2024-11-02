@@ -21,7 +21,7 @@ public class RotationUnit {
     public void rotateTo270(Item item) {
         // roatate that bottle for 270 degree (obviously look at the method name)
         item.setRotation(180);
-     //   System.out.println("Item " + item.getCurrentLabel() + " has been rotated 270 degree");
+        System.out.println("Item " + item.getCurrentLabel() + " has been rotated 270 degree");
     }
 
 

@@ -153,6 +153,8 @@ public class SupervisoryModule {
                 displayMessage("Cannot deposit the item, please remove item.");
                 receiptProcessor.addNonAcceptedItem();
                 bottleDepositMachine.changeStateToRequireAction();
+                displayMessage("User removed the bottle from the Entry port");
+                bottleDepositMachine.changeStateToReady();
             } else {
                 receiptProcessor.addItemToReceipt(scannedItem);
                 conveyorBelt.moveItem(item);

@@ -31,19 +31,19 @@ public class BottleDepositMachine {
     public void changeStateToReady() {
         currentState = State.READY;
         ledStatus = "GREEN";
-        System.out.println("The Bottle Deposit Machine is ready to scan " + ledStatus + ").");
+        System.out.println("The Bottle Deposit Machine is ready to scan (" + ledStatus + ").");
     }
 
     public void changeStateToLocked() {
         currentState = State.LOCKED;
         ledStatus = "RED";
-        System.out.println("The Bottle Deposit Machine is unable for service " + ledStatus + ").");
+        System.out.println("The Bottle Deposit Machine is unable for service ( " + ledStatus + ").");
     }
 
     public void changeStateToRequireAction() {
         currentState = State.LOCKED;
         ledStatus = "YELLOW";
-        System.out.println("Action required: you need to pick up the bottle " + ledStatus + ").");
+        System.out.println("Action required: you need to pick up the bottle ( " + ledStatus + ").");
     }
 
     public void inputBottle(Item item) {
