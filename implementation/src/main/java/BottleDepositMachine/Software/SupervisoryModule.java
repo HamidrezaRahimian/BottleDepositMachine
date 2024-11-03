@@ -36,6 +36,8 @@ public class SupervisoryModule {
 
     public void scanIDCard(String employeeId) {
         cardScanner.handleEmployeeCardScan(employeeId);
+       // System.out.println("Employee ID: " + employeeId + " is scanned.");
+
     }
 
     public void processBottle(Item item) {

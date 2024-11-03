@@ -14,6 +14,7 @@ public class CardScanner {
 
       //here you can define new worker username
     public void handleEmployeeCardScan(String employeeId) {
+        System.out.println("Employee ID: " + employeeId + " is scanned.");
         if (employeeId.equals("employeeID1-Alex") || employeeId.equals("employeeID2-Susana") || employeeId.equals("employeeID3-Tom")) {
             if (bottleDepositMachine.getCurrentState() == State.LOCKED) {
                 bottleDepositMachine.changeStateToReady();

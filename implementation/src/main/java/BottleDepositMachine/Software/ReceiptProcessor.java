@@ -45,8 +45,8 @@ public class ReceiptProcessor {
         total += price;
 
         // Format and add the item entry to the receipt with each entry on a new line
-        String receiptEntry = String.format("%s, %s, %s, %.2f €", item[0], item[2], item[3], price);
-        receipt.add(receiptEntry);
+        // String receiptEntry = String.format("%s, %s, %s, %.2f €", item[0], item[2], item[3], price);
+      //  receipt.add(receiptEntry);
     }
 
     public void addNonAcceptedItem() {

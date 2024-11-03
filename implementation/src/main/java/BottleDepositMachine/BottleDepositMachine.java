@@ -54,6 +54,7 @@ public class BottleDepositMachine {
 
     public void scanCard(String employeeId) {
         controlUnit.scanIDCard(employeeId);
+
     }
 
     public void clickOn(String button) {

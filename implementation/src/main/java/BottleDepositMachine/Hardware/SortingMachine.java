@@ -28,8 +28,9 @@ public class SortingMachine {
         String material = scannedItem[3];
 
         if ("Disposable".equals(type) && "Metal".equals(material)) {
-            controlUnit.crushItem(movedItem);
             System.out.println("bottle moved to Crusher to be crushed");
+            controlUnit.crushItem(movedItem);
+
             return;
         }
         if ("Disposable".equals(type) && "Plastic".equals(material)) {

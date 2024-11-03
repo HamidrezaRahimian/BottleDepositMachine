@@ -11,7 +11,7 @@ public class CompressedBottleBin {
     }
     public void addToContainer(Item movedItem) {
         this.container.push(movedItem);
-        System.out.println("Item "+movedItem+" is placed in the container successfully");
+        System.out.println("Item "+movedItem.getFrontLabel()+" is placed in the container successfully");
 
     }
 }

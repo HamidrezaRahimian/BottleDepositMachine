@@ -23,13 +23,13 @@ public class ListOfItems {
         myListOfItems.add(new Item("FG Bottle | 1L", "8hgij9rqv5", "Reusable", "Plastic", 2.00));
 
         // Initialize non-acceptable items
-        listOfNotAcceptableItems.add(new Item("X Can | 0.5L", "3a6mr6o7sl", "Disposable", "Metal", 0.00));
-        listOfNotAcceptableItems.add(new Item("Y Bottle | 0.33L", "ha3pven757", "Disposable", "Glas", 0.00));
-        listOfNotAcceptableItems.add(new Item("Y Bottle | 0.5L", "447ds7u9j4", "Disposable", "Glas", 0.00));
-        listOfNotAcceptableItems.add(new Item("Y Bottle | 1L ", "5hqoa0ean4", "Disposable", "Glas", 0.00));
-        listOfNotAcceptableItems.add(new Item("Z Bottle | 0.33L ", "j03eiqtm2t", "Disposable", "Glas", 0.00));
-        listOfNotAcceptableItems.add(new Item("Z Bottle | 0.5L", "5jrsqeg201", "Disposable", "Plastic", 0.00));
-        listOfNotAcceptableItems.add(new Item("Z Bottle | 1L ", "pv4og90ymi", "Disposable", "Plastic", 0.00));
+        listOfNotAcceptableItems.add(new Item("X Can | 0.5L", "3a6mr6o7sl", "Not Accepted", "Metal", 0.00));
+        listOfNotAcceptableItems.add(new Item("Y Bottle | 0.33L", "ha3pven757", "Not Accepted", "Glas", 0.00));
+        listOfNotAcceptableItems.add(new Item("Y Bottle | 0.5L", "447ds7u9j4", "Not Accepted", "Glas", 0.00));
+        listOfNotAcceptableItems.add(new Item("Y Bottle | 1L ", "5hqoa0ean4", "Not Accepted", "Glas", 0.00));
+        listOfNotAcceptableItems.add(new Item("Z Bottle | 0.33L ", "j03eiqtm2t", "Not Accepted", "Glas", 0.00));
+        listOfNotAcceptableItems.add(new Item("Z Bottle | 0.5L", "5jrsqeg201", "Not Accepted", "Plastic", 0.00));
+        listOfNotAcceptableItems.add(new Item("Z Bottle | 1L ", "pv4og90ymi", "Not Accepted", "Plastic", 0.00));
     }
 
     public List<Item> getItems() {
