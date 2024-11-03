@@ -158,6 +158,7 @@ public class SupervisoryModule {
             } else {
                 receiptProcessor.addItemToReceipt(scannedItem);
                 conveyorBelt.moveItem(item);
+                System.out.println("Type: " + item.getRecyclingType() + ", Material: " + item.getMaterialType());
                 SortingMachine.sortMovedItem(scannedItem);
                 display.setFinishButton(true);
             }
@@ -195,5 +196,6 @@ public class SupervisoryModule {
     }
     public void crushItem(Item item) {
         crusher.crushItem(item);
+        System.out.println("Crushed item: " + item.getFrontLabel());
     }
 }

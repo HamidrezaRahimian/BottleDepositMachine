@@ -22,7 +22,7 @@ public class BottleDepositMachine {
 
     public BottleDepositMachine(Display display) {
         this.currentState = State.LOCKED;
-        this.ledStatus = "Rot";
+        this.ledStatus = "RED";
         this.display = display;
         this.cardScanner = new CardScanner(this);
         this.controlUnit = new SupervisoryModule(this, cardScanner, display);
@@ -48,6 +48,8 @@ public class BottleDepositMachine {
 
     public void inputBottle(Item item) {
         controlUnit.processBottle(item);
+        System.out.println("________________________________________________________________________________________________");
+        System.out.println("Processing new bottle | please wait ");
     }
 
     public void scanCard(String employeeId) {

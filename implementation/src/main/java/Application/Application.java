@@ -49,7 +49,7 @@ public class Application {
                 System.out.println("Please choose an option: ");
                 System.out.println("1. Print the receipt");
                 System.out.println("2. Donation");
-                System.out.print("Enter your choice (1 or 2): ");
+                System.out.print("Enter your choice (1 or 2): \n");
 
                 //int choice = Integer.parseInt(scanner.nextLine());
                 int choice = 1;
@@ -62,6 +62,7 @@ public class Application {
                 } else {
                     System.out.println("Invalid choice. No action taken.");
                 }
+
 
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please enter a valid number or 'exit' to quit.");

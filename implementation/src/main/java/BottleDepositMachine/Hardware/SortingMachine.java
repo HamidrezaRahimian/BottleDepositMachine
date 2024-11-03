@@ -7,8 +7,6 @@ import BottleDepositMachine.Software.SupervisoryModule;
 import Items.Item;
 import lombok.Setter;
 
-import java.util.Objects;
-
 public class SortingMachine {
     @Setter
     private Item movedItem;
@@ -26,25 +24,33 @@ public class SortingMachine {
 
 
     public void sortMovedItem(String[] scannedItem) {
-        if (Objects.equals(scannedItem[2], "disposable") && Objects.equals(scannedItem[3], "Metal")) {
-          controlUnit.crushItem(movedItem);
-          return;
+        String type = scannedItem[2];
+        String material = scannedItem[3];
+
+        if ("Disposable".equals(type) && "Metal".equals(material)) {
+            controlUnit.crushItem(movedItem);
+            System.out.println("bottle moved to Crusher to be crushed");
+            return;
         }
-        if (Objects.equals(scannedItem[2], "disposable") && Objects.equals(scannedItem[3], "Plastic")) {
+        if ("Disposable".equals(type) && "Plastic".equals(material)) {
             SingleUsePlasticBin.addToContainer(movedItem);
+            System.out.println("bottle moved to SingleUsePlasticBin");
             return;
         }
-        if (Objects.equals(scannedItem[2], "reusable") && Objects.equals(scannedItem[3], "Plastic")) {
+        if ("Reusable".equals(type) && "Plastic".equals(material)) {
             MultiPlasticBin.addToContainer(movedItem);
+            System.out.println("bottle moved to MultiPlasticBin");
             return;
         }
-        if (Objects.equals(scannedItem[2], "disposable") && Objects.equals(scannedItem[3], "Glas")) {
+        if ("Reusable".equals(type) && "Glas".equals(material)) {
             GlassCollectionBin.addToContainer(movedItem);
-            return;
-        }else {
-            System.out.println("Invalid BottelType");
+            System.out.println("bottle moved to GlassCollectionBin");
             return;
         }
+        System.out.println("**type** "+ type + "****" + scannedItem[2] );
+        System.out.println("**material** "+ material + "****" + scannedItem[3] );
+        System.out.println("Invalid Bottle Type in Sorting Machine-----------------------------------------");
     }
+
 
 }

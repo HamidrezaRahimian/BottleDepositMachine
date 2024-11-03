@@ -11,7 +11,7 @@ public class GlassCollectionBin {
     }
     public void addToContainer(Item movedItem) {
         this.Container.push(movedItem);
-        System.out.println("Item "+movedItem+" is placed in the container successfully");
+        System.out.println("Item is placed in the container successfully");
 
     }
 }
