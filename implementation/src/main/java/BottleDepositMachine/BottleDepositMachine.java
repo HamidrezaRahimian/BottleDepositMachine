@@ -5,6 +5,7 @@ import BottleDepositMachine.Hardware.Display;
 import BottleDepositMachine.Hardware.EntryPort;
 import BottleDepositMachine.Software.State;
 import BottleDepositMachine.Software.SupervisoryModule;
+import BottleDepositMachine.Software.LEDState; // Import the LEDState enum
 import Items.Item;
 import lombok.Getter;
 
@@ -16,13 +17,13 @@ public class BottleDepositMachine {
     private Display display;
     @Getter
     private State currentState;
-    private String ledStatus;
+    private LEDState ledStatus; // Changed from String to LEDState
     private EntryPort inputSlot;
     private SupervisoryModule controlUnit;
 
     public BottleDepositMachine(Display display) {
         this.currentState = State.LOCKED;
-        this.ledStatus = "RED";
+        this.ledStatus = LEDState.RED; // Initialize with LEDState
         this.display = display;
         this.cardScanner = new CardScanner(this);
         this.controlUnit = new SupervisoryModule(this, cardScanner, display);
@@ -30,20 +31,20 @@ public class BottleDepositMachine {
 
     public void changeStateToReady() {
         currentState = State.READY;
-        ledStatus = "GREEN";
-        System.out.println("The Bottle Deposit Machine is ready to scan (" + ledStatus + ").");
+        ledStatus = LEDState.GREEN; // Use LEDState enum
+        System.out.println("The Bottle Deposit Machine is ready to scan (" + ledStatus.getDescription() + ").");
     }
 
     public void changeStateToLocked() {
         currentState = State.LOCKED;
-        ledStatus = "RED";
-        System.out.println("The Bottle Deposit Machine is unable for service ( " + ledStatus + ").");
+        ledStatus = LEDState.RED; // Use LEDState enum
+        System.out.println("The Bottle Deposit Machine is unable for service (" + ledStatus.getDescription() + ").");
     }
 
     public void changeStateToRequireAction() {
-        currentState = State.LOCKED;
-        ledStatus = "YELLOW";
-        System.out.println("Action required: you need to pick up the bottle ( " + ledStatus + ").");
+        currentState = State.LOCKED; // You might want to change this logic if "RequireAction" should not be locked
+        ledStatus = LEDState.YELLOW; // Use LEDState enum
+        System.out.println("Action required: you need to pick up the bottle (" + ledStatus.getDescription() + ").");
     }
 
     public void inputBottle(Item item) {
@@ -54,7 +55,6 @@ public class BottleDepositMachine {
 
     public void scanCard(String employeeId) {
         controlUnit.scanIDCard(employeeId);
-
     }
 
     public void clickOn(String button) {

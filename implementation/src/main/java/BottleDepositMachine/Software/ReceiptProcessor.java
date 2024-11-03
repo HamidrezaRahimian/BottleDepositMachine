@@ -91,4 +91,9 @@ public class ReceiptProcessor {
         }
         return receiptBuilder.toString().trim(); // Trim any trailing newline
     }
+    public String getTotal() {
+        return String.format("%.2f", total);
+    }
+
+
 }
