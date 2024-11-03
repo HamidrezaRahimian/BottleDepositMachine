@@ -14,7 +14,7 @@ public class Item {
     private BackLabel backLabel;
      private String recyclingType;
     private String materialType;
-    private static final Random random = new Random();
+    public static final Random random = new Random();
 
        // app will randomly choose the right degree of Rotation to scan
     private int getRandomRotationRightDegree() {

@@ -8,6 +8,8 @@ import Items.ListOfItems;
 import java.util.List;
 import java.util.Scanner;
 
+import static Items.Item.random;
+
 public class Application {
     public static void main(String[] args) {
         // Create a scanner to get  input
@@ -46,7 +48,7 @@ public class Application {
 
                 // Allow the user to add the specified number of bottles
                 for (int i = 0; i < numberOfBottles; i++) {
-                    Item randomItem = items.get(i % items.size()); // Loop through items list if user requests more than available items
+                    Item randomItem = items.get(random.nextInt(items.size())); // Select a random item from the list
                     myBottleDepositMachine.inputBottle(randomItem);
 
                     // Update values
