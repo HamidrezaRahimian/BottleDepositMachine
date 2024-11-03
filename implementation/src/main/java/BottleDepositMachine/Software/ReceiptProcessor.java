@@ -16,6 +16,14 @@ public class ReceiptProcessor {
     private double disposableTotal;
     private double reusableTotal;
 
+    //for testing
+    private int nonAcceptedItemsCountTesting;
+    private int disposableItemsCountTesting;
+    private int reusableItemsCountTesting;
+    private double disposableTotalTesting;
+    private double reusableTotalTesting;
+    private double totalTesting;
+
     public ReceiptProcessor() {
         receipt = new ArrayList<>();
         total = 0;
@@ -71,6 +79,13 @@ public class ReceiptProcessor {
         receipt.add("> total: " + String.format("%.2f", total) + " €");
         receipt.add(" ");
 
+        this.nonAcceptedItemsCountTesting = nonAcceptedItemsCount;
+        this.disposableItemsCountTesting = disposableItemsCount;
+        this.reusableItemsCountTesting = reusableItemsCount;
+        this.disposableTotalTesting = disposableTotal;
+        this.reusableTotalTesting = reusableTotal;
+        this.totalTesting = total;
+
     }
 
     public void clearStorage() {
@@ -93,6 +108,31 @@ public class ReceiptProcessor {
     }
     public String getTotal() {
         return String.format("%.2f", total);
+    }
+
+    //for testing
+    public double getDisposableTotal() {
+        return disposableTotalTesting;
+    }
+
+    public double getReusableTotal() {
+        return reusableTotalTesting;
+    }
+
+    public double getTotalForAll() {
+        return totalTesting;
+    }
+
+    public int getDisposableCount() {
+        return disposableItemsCountTesting;
+    }
+
+    public int getReusableCount() {
+        return reusableItemsCountTesting;
+    }
+
+    public int getNonAcceptedCount() {
+        return nonAcceptedItemsCountTesting;
     }
 
 

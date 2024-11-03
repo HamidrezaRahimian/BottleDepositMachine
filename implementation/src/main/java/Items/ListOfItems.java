@@ -38,3 +38,43 @@ public class ListOfItems {
         return combinedList;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+/*      Test 1
+        myListOfItems.add(new Item("DE Bottle | 1L", "xvjix0xaue", "Reusable", "Glas", 0.75));
+        listOfNotAcceptableItems.add(new Item("Z Bottle | 0.33L ", "j03eiqtm2t", "Not Accepted", "Glas", 0.00));
+        myListOfItems.add(new Item("ABC Can | 0.5L", "tmvkrw69le", "Disposable", "Metal", 0.25));
+        myListOfItems.add(new Item("FG Bottle | 1L", "8hgij9rqv5", "Reusable", "Plastic", 2.00));
+        listOfNotAcceptableItems.add(new Item("X Can | 0.5L", "3a6mr6o7sl", "Not Accepted", "Metal", 0.00));
+        myListOfItems.add(new Item("DE Bottle | 0.75L", "4xpokcvb7c", "Reusable", "Glas", 0.50));
+
+ test check if :
+
+        receipt.add("#accepted items: " + acceptedItemsCount);
+        receipt.add("#disposable: " + disposableItemsCount + " (" + String.format("%.2f", disposableTotal) + " €)");
+        receipt.add("#reusable: " + reusableItemsCount + " (" + String.format("%.2f", reusableTotal) + " €)");
+        receipt.add("#non-accepted items: " + nonAcceptedItemsCount);
+        receipt.add("> total: " + String.format("%.2f", total) + " €");
+
+
+
+
+        Disposable Count: 1,
+        Reusable Count: 3,
+        Not Accepted Count: 2,
+        Disposable Total: 0,25 €,
+        Reusable Total: 3,25 €,
+        Not Accepted Total: 0 €,
+        Total for All: 3,50
+
+
+ */

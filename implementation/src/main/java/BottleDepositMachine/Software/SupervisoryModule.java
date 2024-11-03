@@ -18,14 +18,14 @@ public class SupervisoryModule {
     private DonationDatabase donationDatabase;
     private Printer printer;
 
-    public SupervisoryModule(BottleDepositMachine bottleDepositMachine, CardScanner cardScanner, Display display) {
+    public SupervisoryModule(BottleDepositMachine bottleDepositMachine, CardScanner cardScanner, Display display,ReceiptProcessor receiptProcessor) {
         this.bottleDepositMachine = bottleDepositMachine;
         this.cardScanner = cardScanner;
         this.barcodeScanner = new BarcodeScanner(this);
         this.rotationUnit = new RotationUnit();
         this.display = display;
         display.setControllUnit(this);
-        this.receiptProcessor = new ReceiptProcessor();
+        this.receiptProcessor = receiptProcessor;
         this.scannedItem = new String[5];
         this.SortingMachine = new SortingMachine(this);
         this.conveyorBelt = new ConveyorBelt(SortingMachine);

@@ -3,9 +3,10 @@ package BottleDepositMachine;
 import BottleDepositMachine.Hardware.CardScanner;
 import BottleDepositMachine.Hardware.Display;
 import BottleDepositMachine.Hardware.EntryPort;
+import BottleDepositMachine.Software.LEDState;
+import BottleDepositMachine.Software.ReceiptProcessor;
 import BottleDepositMachine.Software.State;
 import BottleDepositMachine.Software.SupervisoryModule;
-import BottleDepositMachine.Software.LEDState; // Import the LEDState enum
 import Items.Item;
 import lombok.Getter;
 
@@ -20,13 +21,16 @@ public class BottleDepositMachine {
     private LEDState ledStatus; // Changed from String to LEDState
     private EntryPort inputSlot;
     private SupervisoryModule controlUnit;
+    private ReceiptProcessor receiptProcessor;
 
-    public BottleDepositMachine(Display display) {
+
+    public BottleDepositMachine(Display display, ReceiptProcessor receiptProcessor) {
         this.currentState = State.LOCKED;
+        this.receiptProcessor = receiptProcessor;
         this.ledStatus = LEDState.RED; // Initialize with LEDState
         this.display = display;
         this.cardScanner = new CardScanner(this);
-        this.controlUnit = new SupervisoryModule(this, cardScanner, display);
+        this.controlUnit = new SupervisoryModule(this, cardScanner, display , receiptProcessor);
     }
 
     public void changeStateToReady() {
@@ -67,5 +71,10 @@ public class BottleDepositMachine {
         } else {
             System.out.println("Invalid Input");
         }
+    }
+
+
+    public ReceiptProcessor getReceiptProcessor() {
+        return this.receiptProcessor;
     }
 }

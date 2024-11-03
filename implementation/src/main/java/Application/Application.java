@@ -2,6 +2,7 @@ package Application;
 
 import BottleDepositMachine.BottleDepositMachine;
 import BottleDepositMachine.Hardware.Display;
+import BottleDepositMachine.Software.ReceiptProcessor;
 import Items.Item;
 import Items.ListOfItems;
 
@@ -15,9 +16,9 @@ public class Application {
         // Create a scanner to get  input
         Scanner scanner = new Scanner(System.in);
 
-
+        ReceiptProcessor receiptProcessor = new ReceiptProcessor();
         Display display = new Display();
-        BottleDepositMachine myBottleDepositMachine = new BottleDepositMachine(display);
+        BottleDepositMachine myBottleDepositMachine = new BottleDepositMachine(display, receiptProcessor);
         myBottleDepositMachine.scanCard("employeeID1-Alex");
 
         // Get the list of items from ListOfItems ( for testing , the database of Items is InMemoryDatabase)

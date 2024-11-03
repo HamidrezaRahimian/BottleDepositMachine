@@ -6,6 +6,7 @@ import BottleDepositMachine.Hardware.Display;
 import BottleDepositMachine.Software.*;
 import Items.Item;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -13,9 +14,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.Mockito.*;
 
-class TestApplication {
+@DisplayName("Bottle Deposit Machine Simulator Tests")
+class TestApplicationSimulator {
     private BottleDepositMachine bottleDepositMachine;
     private CardScanner cardScanner;
     private Display display;
@@ -27,15 +28,22 @@ class TestApplication {
 
     @BeforeEach
     void setUp() {
-        display = mock(Display.class);
-        receiptProcessor = mock(ReceiptProcessor.class);
-        bottleDepositMachine = mock(BottleDepositMachine.class);
+        receiptProcessor = new ReceiptProcessor();
+        display = new Display();
+        bottleDepositMachine = new BottleDepositMachine(display,receiptProcessor);
         cardScanner = new CardScanner(bottleDepositMachine);
-        supervisoryModule = new SupervisoryModule(bottleDepositMachine, cardScanner, display, receiptProcessor);
+        supervisoryModule = new SupervisoryModule(bottleDepositMachine, cardScanner, display,receiptProcessor);
         inMemoryDatabase = new InMemoryDatabase();
         testItems = new ArrayList<>();
         simulator = new Simulator(bottleDepositMachine);
+
+
     }
+
+
+    // this is my first solutuin based on spicifation file but after 15 hours i decided to
+    // add a class which call Simulator in Software which runs program for testing
+    // so in the next 7 tests i used Simulator
 
     @Test
     void testInMemoryDatabaseRetrieval() {
@@ -56,12 +64,7 @@ class TestApplication {
         bottleDepositMachine.changeStateToReady();
         assertEquals(State.READY, bottleDepositMachine.getCurrentState());
     }
-
-    // this is my first solution based on spicifation file but after 15 hours i decided to
-    // add a class which call Simulator in Software which runs program for testing
-    // so in the next 7 tests i used Simulator
-
-    // Test 1
+    //Test 1
     @Test
     void testBottleProcessingSequence() {
         // Initialize test items
@@ -72,36 +75,58 @@ class TestApplication {
         testItems.add(new Item("X Can | 0.5L", "3a6mr6o7sl", "Not Accepted", "Metal", 0.00));
         testItems.add(new Item("DE Bottle | 0.75L", "4xpokcvb7c", "Reusable", "Glas", 0.50));
 
-        // Mock the behavior of methods
+        // Unlock the machine
+        bottleDepositMachine.scanCard("employeeID1-Alex");
 
+        // Counters for processed items
+        int disposableItemsCount = 0;
+        int reusableItemsCount = 0;
+        int nonAcceptedItemsCount = 0;
+        double disposableTotal = 0.0;
+        double reusableTotal = 0.0;
+        double totalForAll = 0.0;
 
-        // Mock the receipt processor
-        when(bottleDepositMachine.getReceiptProcessor()).thenReturn(receiptProcessor);
-        when(receiptProcessor.getDisposableCount()).thenReturn(1);
-        when(receiptProcessor.getReusableCount()).thenReturn(3);
-        when(receiptProcessor.getNonAcceptedCount()).thenReturn(2);
-        when(receiptProcessor.getDisposableTotal()).thenReturn(0.25);
-        when(receiptProcessor.getReusableTotal()).thenReturn(3.25);
-        when(receiptProcessor.getTotalForAll()).thenReturn(3.50);
+        // Process bottles
+        for (Item item : testItems) {
+            bottleDepositMachine.inputBottle(item);
+            // Update counters based on the item type
+            if (item.getDepositAmount() > 0) {
+                totalForAll += item.getDepositAmount();
+                if (item.getRecyclingType().equalsIgnoreCase("Disposable")) {
+                    disposableItemsCount++;
+                    disposableTotal += item.getDepositAmount();
+                } else if (item.getRecyclingType().equalsIgnoreCase("Reusable")) {
+                    reusableItemsCount++;
+                    reusableTotal += item.getDepositAmount();
+                }
+            } else {
+                nonAcceptedItemsCount++;
+            }
+        }
 
         // Finalize the transaction
         bottleDepositMachine.clickOn("Finish");
         bottleDepositMachine.clickOn("Print the receipt");
 
+        // Retrieve totals from the receipt processor
+        ReceiptProcessor rp = bottleDepositMachine.getReceiptProcessor();
+
         // Assertions
-        assertEquals(1, receiptProcessor.getDisposableCount()); // Disposable Count
-        assertEquals(3, receiptProcessor.getReusableCount()); // Reusable Count
-        assertEquals(2, receiptProcessor.getNonAcceptedCount()); // Not Accepted Count
-        assertEquals(0.25, receiptProcessor.getDisposableTotal()); // Disposable Total price
-        assertEquals(3.25, receiptProcessor.getReusableTotal()); // Reusable Total price
-        assertEquals(3.50, receiptProcessor.getTotalForAll()); // Total for All
+        assertEquals(1, rp.getDisposableCount()); // Disposable Count
+        assertEquals(3, rp.getReusableCount()); // Reusable Count
+        assertEquals(2, rp.getNonAcceptedCount()); // Not Accepted Count
+       // assertEquals(0, 0); // Not Accepted Total is always 0.00
+        assertEquals(0.25, rp.getDisposableTotal()); // Disposable Total price
+        assertEquals(3.25, rp.getReusableTotal()); // Reusable Total price
+        assertEquals(3.50, rp.getTotalForAll()); // Total for All
     }
+
 
     // Test 2
     @Test
     void testBottleProcessingWithSimulator() {
-        // Prepare test items using the same list
-        testItems.clear(); // Clear previous items if any
+        // Prepare test items
+        List<Item> testItems = new ArrayList<>();
         testItems.add(new Item("DE Bottle | 1L", "xvjix0xaue", "Reusable", "Glas", 0.75));
         testItems.add(new Item("Z Bottle | 0.33L", "j03eiqtm2t", "Not Accepted", "Glas", 0.00));
         testItems.add(new Item("ABC Can | 0.5L", "tmvkrw69le", "Disposable", "Metal", 0.25));
@@ -112,14 +137,6 @@ class TestApplication {
         // Run the simulation
         ReceiptProcessor rp = simulator.runSimulation(testItems);
 
-        // Mock return values for the receipt processor
-        when(rp.getReusableCount()).thenReturn(3);
-        when(rp.getDisposableCount()).thenReturn(1);
-        when(rp.getNonAcceptedCount()).thenReturn(2);
-        when(rp.getDisposableTotal()).thenReturn(0.25);
-        when(rp.getReusableTotal()).thenReturn(3.25);
-        when(rp.getTotalForAll()).thenReturn(3.50);
-
         // Assertions based on the receipt processor
         assertEquals(3, rp.getReusableCount()); // Expected reusable count
         assertEquals(1, rp.getDisposableCount()); // Expected disposable count
@@ -129,3 +146,6 @@ class TestApplication {
         assertEquals(3.50, rp.getTotalForAll(), 0.01); // Expected total for all
     }
 }
+
+
+
