@@ -127,12 +127,13 @@ class TestApplicationSimulator {
     void testBottleProcessingWithSimulator() {
         // Prepare test items
         List<Item> testItems = new ArrayList<>();
-        testItems.add(new Item("DE Bottle | 1L", "xvjix0xaue", "Reusable", "Glas", 0.75));
-        testItems.add(new Item("Z Bottle | 0.33L", "j03eiqtm2t", "Not Accepted", "Glas", 0.00));
-        testItems.add(new Item("ABC Can | 0.5L", "tmvkrw69le", "Disposable", "Metal", 0.25));
-        testItems.add(new Item("FG Bottle | 1L", "8hgij9rqv5", "Reusable", "Plastic", 2.00));
-        testItems.add(new Item("X Can | 0.5L", "3a6mr6o7sl", "Not Accepted", "Metal", 0.00));
-        testItems.add(new Item("DE Bottle | 0.75L", "4xpokcvb7c", "Reusable", "Glas", 0.50));
+        testItems.add(new Item("DE Bottle | 0.33L", "bzfi339nsy", "Reusable", "Glass", 0.25));
+        testItems.add(new Item("Z Bottle | 0.33L", "j03eiqtm2t", "Not Accepted", "Glass", 0.00));
+        testItems.add(new Item("DE Bottle | 0.5L", "3jdwml7w52", "Reusable", "Glass", 0.30));
+        testItems.add(new Item("Y Bottle | 1L", "5hqoa0ean4", "Not Accepted", "Glass", 0.00));
+        testItems.add(new Item("FG Bottle | 0.5L", "js92hp13rp", "Reusable", "Plastic", 1.00));
+        testItems.add(new Item("ABC Can | 0.33L", "r8yz7clkz4", "Disposable", "Metal", 0.25));
+        testItems.add(new Item("Y Bottle | 0.5L", "447ds7u9j4", "Not Accepted", "Glass", 0.00));
 
         // Run the simulation
         ReceiptProcessor rp = simulator.runSimulation(testItems);
@@ -140,10 +141,10 @@ class TestApplicationSimulator {
         // Assertions based on the receipt processor
         assertEquals(3, rp.getReusableCount()); // Expected reusable count
         assertEquals(1, rp.getDisposableCount()); // Expected disposable count
-        assertEquals(2, rp.getNonAcceptedCount()); // Expected non-accepted count
+        assertEquals(3, rp.getNonAcceptedCount()); // Expected non-accepted count
         assertEquals(0.25, rp.getDisposableTotal(), 0.01); // Expected disposable total
-        assertEquals(3.25, rp.getReusableTotal(), 0.01); // Expected reusable total
-        assertEquals(3.50, rp.getTotalForAll(), 0.01); // Expected total for all
+        assertEquals(1.55, rp.getReusableTotal(), 0.01); // Expected reusable total
+        assertEquals(1.80, rp.getTotalForAll(), 0.01); // Expected total for all
     }
 }
 
