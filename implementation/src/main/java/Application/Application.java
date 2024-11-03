@@ -97,7 +97,8 @@ public class Application {
                 } else {
                     System.out.println("Invalid choice. No action taken.");
                 }
-
+                System.out.print("______________________________________________________________ \n");
+                // System.out.print("_______________________________________________________________ \n");
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please enter a valid number or 'exit' to quit.");
             } catch (Exception e) {
