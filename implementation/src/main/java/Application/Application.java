@@ -2,6 +2,7 @@ package Application;
 
 import BottleDepositMachine.BottleDepositMachine;
 import BottleDepositMachine.Hardware.Display;
+import BottleDepositMachine.Software.LEDState;
 import BottleDepositMachine.Software.ReceiptProcessor;
 import Items.Item;
 import Items.ListOfItems;
@@ -15,6 +16,7 @@ public class Application {
     public static void main(String[] args) {
         // Create a scanner to get  input
         Scanner scanner = new Scanner(System.in);
+        LEDState ledStatus;
 
         ReceiptProcessor receiptProcessor = new ReceiptProcessor();
         Display display = new Display();
@@ -32,7 +34,7 @@ public class Application {
                 String input = scanner.nextLine();
 
                 if (input.equalsIgnoreCase("exit")) {
-                    System.out.println("Exiting the application. Thank you!");
+                    System.out.println("Exiting the application. Thank you Mr. Müller!");
                     break; // Exit the loop if user types 'exit'
                 }
 
@@ -67,7 +69,7 @@ public class Application {
                     }
 
                     // Print out the summary line after each bottle like hte spesificaitn example
-                    System.out.printf("%s | %s | %.2f € | %d | %d | %d | %d | %d | %.2f €%n",
+                    System.out.printf("\u001B[34m%s | %s | %.2f € | %d | %d | %d | %d | %d | %.2f €\u001B[0m%n",
                             randomItem.getFrontLabel(),
                             randomItem.getRecyclingType(),
                             randomItem.getDepositAmount(),
@@ -77,12 +79,17 @@ public class Application {
                             reusableItems,
                             nonAcceptedItems,
                             totalPrice);
-                }
 
+                }
+                ledStatus = LEDState.GREEN;
+
+                System.out.println("Customer added all the bottles " + "\u001B[32m(LED : " + ledStatus.name() + ")\u001B[0m");
                 myBottleDepositMachine.clickOn("Finish");
 
                 // User chooses between printing receipt or making a donation
-                System.out.println("Please choose an option: ");
+                ledStatus = LEDState.YELLOW;
+
+                System.out.println("Please choose an option: " + "\u001B[33m(LED : " + ledStatus.name() + ")\u001B[0m");
                 System.out.println("1. Print the receipt");
                 System.out.println("2. Donation");
                 System.out.print("Enter your choice (1 or 2): \n");
@@ -96,7 +103,8 @@ public class Application {
                 } else if (choice == 2) {
                     myBottleDepositMachine.clickOn("Donation");
                 } else {
-                    System.out.println("Invalid choice. No action taken.");
+                    ledStatus = LEDState.YELLOW; // Use LEDState enum
+                    System.out.println("Invalid choice. No action taken."+ "\u001B[33m(LED : " + ledStatus.name() + ")\u001B[0m");
                 }
                 System.out.print("______________________________________________________________ \n");
                 // System.out.print("_______________________________________________________________ \n");

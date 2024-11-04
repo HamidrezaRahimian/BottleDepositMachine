@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @DisplayName("Bottle Deposit Machine BDD Tests")
-public class BDDTest7and8 extends SimpleScenarioTest<BDDTest7and8.TestStage> {
+public class JGivenBDDTest7and8 extends SimpleScenarioTest<JGivenBDDTest7and8.TestStage> {
 
     @Test
     @DisplayName("Bottle deposit machine simulation test 7")

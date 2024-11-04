@@ -8,6 +8,7 @@ import BottleDepositMachine.Software.ReceiptProcessor;
 import BottleDepositMachine.Software.State;
 import BottleDepositMachine.Software.SupervisoryModule;
 import Items.Item;
+import Users.Customer;
 import lombok.Getter;
 
 public class BottleDepositMachine {
@@ -22,6 +23,8 @@ public class BottleDepositMachine {
     private EntryPort inputSlot;
     private SupervisoryModule controlUnit;
     private ReceiptProcessor receiptProcessor;
+    private Customer currentCustomer;
+
 
 
     public BottleDepositMachine(Display display, ReceiptProcessor receiptProcessor) {
@@ -36,25 +39,34 @@ public class BottleDepositMachine {
     public void changeStateToReady() {
         currentState = State.READY;
         ledStatus = LEDState.GREEN; // Use LEDState enum
-        System.out.println("The Bottle Deposit Machine is ready to scan (" + ledStatus.getDescription() + ").");
+        System.out.println("The Bottle Deposit Machine is ready to scan (" + ledStatus.getDescription() + "). " +
+                "\u001B[32m(LED : " + ledStatus.name() + ")\u001B[0m");
     }
 
     public void changeStateToLocked() {
         currentState = State.LOCKED;
         ledStatus = LEDState.RED; // Use LEDState enum
-        System.out.println("The Bottle Deposit Machine is unable for service (" + ledStatus.getDescription() + ").");
+        System.out.println("The Bottle Deposit Machine is unable for service (" +
+                ledStatus.getDescription() + "). " +
+                "\u001B[31m(LED : " + ledStatus.name() + ")\u001B[0m");
     }
 
     public void changeStateToRequireAction() {
         currentState = State.LOCKED; // You might want to change this logic if "RequireAction" should not be locked
         ledStatus = LEDState.YELLOW; // Use LEDState enum
-        System.out.println("Action required: you need to pick up the bottle (" + ledStatus.getDescription() + ").");
+        System.out.println("Action required: you need to pick up the bottle (" +
+                ledStatus.getDescription() + "). " +
+                "\u001B[33m(LED : " + ledStatus.name() + ")\u001B[0m");
     }
 
     public void inputBottle(Item item) {
         controlUnit.processBottle(item);
         System.out.println("________________________________________________________________________________________________");
-        System.out.println("Processing new bottle | please wait ");
+        System.out.println("Customer inserted a bottle");
+        System.out.println("Processing new bottle | please wait " +
+                "\u001B[31m(LED : " + ledStatus.name() + ")\u001B[0m");
+
+
     }
 
     public void scanCard(String employeeId) {
@@ -63,6 +75,7 @@ public class BottleDepositMachine {
 
     public void clickOn(String button) {
         if (button.equals("Finish")) {
+            System.out.println("Customer clicked on Finish");
             display.pushFinishButton();
         } else if (button.equals("Print the receipt")) {
             display.pushRecieptButton();

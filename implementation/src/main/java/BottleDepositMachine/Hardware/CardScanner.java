@@ -1,11 +1,14 @@
 package BottleDepositMachine.Hardware;
 
 import BottleDepositMachine.BottleDepositMachine;
+import BottleDepositMachine.Software.LEDState;
 import BottleDepositMachine.Software.State;
 import Items.Item;
 
 public class CardScanner {
     private BottleDepositMachine bottleDepositMachine;
+    private LEDState ledStatus; // Changed from String to LEDState
+
 
 
     public CardScanner(BottleDepositMachine bottleDepositMachine) {
@@ -14,7 +17,10 @@ public class CardScanner {
 
       //here you can define new worker username
     public void handleEmployeeCardScan(String employeeId) {
-        System.out.println("Employee ID: " + employeeId + " is scanned.");
+        ledStatus = LEDState.GREEN; // Use LEDState enum
+
+        System.out.println("Employee ID: " + employeeId + " is scanned. " +
+                "\u001B[32m(LED : " + ledStatus.name() + ")\u001B[0m");
         if (employeeId.equals("employeeID1-Alex") || employeeId.equals("employeeID2-Susana") || employeeId.equals("employeeID3-Tom")) {
             if (bottleDepositMachine.getCurrentState() == State.LOCKED) {
                 bottleDepositMachine.changeStateToReady();

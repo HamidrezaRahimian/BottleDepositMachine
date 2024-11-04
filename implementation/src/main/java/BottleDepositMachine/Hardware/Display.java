@@ -1,9 +1,11 @@
 package BottleDepositMachine.Hardware;
 
 
+import BottleDepositMachine.Software.LEDState;
 import BottleDepositMachine.Software.SupervisoryModule;
 import lombok.Setter;
 public class Display {
+    private LEDState ledStatus; // Changed from String to LEDState
 
 
     @Setter
@@ -36,7 +38,8 @@ public class Display {
         if (donationButton) {
             donationButton = false;
             recieptButton = false;
-            System.out.println( "clicked on Donation button");
+            ledStatus = LEDState.GREEN;
+            System.out.println("Clicked on Donation button " + "\u001B[32m(LED : " + ledStatus.name() + ")\u001B[0m");
             controlUnit.donate();
         }else{
             System.out.println("donation is not possible , please make sure to insert the bottles first");
@@ -46,7 +49,8 @@ public class Display {
         if (recieptButton) {
             recieptButton = false;
             donationButton = false;
-            System.out.println("receipt has been printed");
+            ledStatus = LEDState.GREEN;
+            System.out.println("Receipt has been printed " + "\u001B[32m(LED : " + ledStatus.name() + ")\u001B[0m");
             controlUnit.printReceipt();
         }else{
             System.out.println("printing receipt is not possible , please make sure to insert the bottles first");

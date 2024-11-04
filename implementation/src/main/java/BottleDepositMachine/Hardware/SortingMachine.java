@@ -50,7 +50,7 @@ public class SortingMachine {
         }
         System.out.println("**type** "+ type + "****" + scannedItem[2] );
         System.out.println("**material** "+ material + "****" + scannedItem[3] );
-        System.out.println("Invalid Bottle Type in Sorting Machine-----------------------------------------");
+        System.out.println("Invalid Bottle Type in Sorting Machine");
     }
 
 

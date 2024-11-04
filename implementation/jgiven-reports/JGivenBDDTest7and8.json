@@ -1,9 +1,9 @@
 {
-  "className": "BDDTest7and8",
+  "className": "JGivenBDDTest7and8",
   "name": "Bottle Deposit Machine BDD Tests",
   "scenarios": [
     {
-      "className": "BDDTest7and8",
+      "className": "JGivenBDDTest7and8",
       "testMethodName": "bottle_deposit_machine_simulation_test_7",
       "description": "bottle deposit machine simulation test 7",
       "tagIds": [],
@@ -25,7 +25,7 @@
                 }
               ],
               "status": "PASSED",
-              "durationInNanos": 28390000,
+              "durationInNanos": 19868400,
               "depth": 0,
               "parentFailed": false
             },
@@ -41,7 +41,7 @@
                 }
               ],
               "status": "PASSED",
-              "durationInNanos": 50867300,
+              "durationInNanos": 47504600,
               "depth": 0,
               "parentFailed": false
             },
@@ -99,7 +99,7 @@
                 }
               ],
               "status": "PASSED",
-              "durationInNanos": 12544900,
+              "durationInNanos": 20325600,
               "depth": 0,
               "parentFailed": false
             }
@@ -107,14 +107,14 @@
           "explicitArguments": [],
           "derivedArguments": [],
           "status": "SUCCESS",
-          "durationInNanos": 118153700
+          "durationInNanos": 115567600
         }
       ],
       "casesAsTable": false,
-      "durationInNanos": 118153700
+      "durationInNanos": 115567600
     },
     {
-      "className": "BDDTest7and8",
+      "className": "JGivenBDDTest7and8",
       "testMethodName": "bottle_deposit_machine_simulation_test_8",
       "description": "bottle deposit machine simulation test 8",
       "tagIds": [],
@@ -136,7 +136,7 @@
                 }
               ],
               "status": "PASSED",
-              "durationInNanos": 98300,
+              "durationInNanos": 223800,
               "depth": 0,
               "parentFailed": false
             },
@@ -152,7 +152,7 @@
                 }
               ],
               "status": "PASSED",
-              "durationInNanos": 3528700,
+              "durationInNanos": 10102400,
               "depth": 0,
               "parentFailed": false
             },
@@ -210,7 +210,7 @@
                 }
               ],
               "status": "PASSED",
-              "durationInNanos": 2023700,
+              "durationInNanos": 1903600,
               "depth": 0,
               "parentFailed": false
             }
@@ -218,11 +218,11 @@
           "explicitArguments": [],
           "derivedArguments": [],
           "status": "SUCCESS",
-          "durationInNanos": 6310600
+          "durationInNanos": 13323000
         }
       ],
       "casesAsTable": false,
-      "durationInNanos": 6310600
+      "durationInNanos": 13323000
     }
   ],
   "tagMap": {}
