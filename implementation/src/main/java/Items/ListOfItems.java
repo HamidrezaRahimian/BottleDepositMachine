@@ -36,8 +36,6 @@ public class ListOfItems {
 
 
 
-
-
     public List<Item> getItems() {
         List<Item> combinedList = new ArrayList<>(myListOfItems);
         combinedList.addAll(listOfNotAcceptableItems);
