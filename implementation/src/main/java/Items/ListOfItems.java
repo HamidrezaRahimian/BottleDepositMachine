@@ -32,6 +32,12 @@ public class ListOfItems {
         listOfNotAcceptableItems.add(new Item("Z Bottle | 1L ", "pv4og90ymi", "Not Accepted", "Plastic", 0.00));
     }
 
+
+
+
+
+
+
     public List<Item> getItems() {
         List<Item> combinedList = new ArrayList<>(myListOfItems);
         combinedList.addAll(listOfNotAcceptableItems);
