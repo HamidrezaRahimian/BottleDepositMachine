@@ -31,7 +31,7 @@ public class Application {
             try {
                 // Prompt user for the number of bottles to add#
                 ledStatus = LEDState.GREEN ;
-                System.out.print("Please enter the number of bottles to add : " + "\u001B[32m(LED : " + ledStatus.name() + ")\u001B[0m");
+                System.out.print("Please enter the number of bottles to add : " + "\u001B[32m(LED : " + ledStatus.name() + ")\u001B[0m \n");
                 String input = scanner.nextLine();
 
                 if (input.equalsIgnoreCase("exit")) {
@@ -90,23 +90,32 @@ public class Application {
                 // User chooses between printing receipt or making a donation
                 ledStatus = LEDState.YELLOW;
 
-                System.out.println("Please choose an option: " + "\u001B[33m(LED : " + ledStatus.name() + ")\u001B[0m");
-                System.out.println("1. Print the receipt");
-                System.out.println("2. Donation");
-                System.out.print("Enter your choice (1 or 2): \n");
-                System.out.print("");
+                while (true) {
+                    System.out.println("Please choose an option: " + "\u001B[33m(LED : " + ledStatus.name() + ")\u001B[0m");
+                    System.out.println("1. Print the receipt");
+                    System.out.println("2. Donation");
+                    System.out.print("Enter your choice (1 or 2): ");
 
-                int choice = Integer.parseInt(scanner.nextLine());
+                    int choice;
+                    try {
+                        choice = Integer.parseInt(scanner.nextLine());
 
-                // Process the user's choice
-                if (choice == 1) {
-                    myBottleDepositMachine.clickOn("Print the receipt");
-                } else if (choice == 2) {
-                    myBottleDepositMachine.clickOn("Donation");
-                } else {
-                    ledStatus = LEDState.YELLOW; // Use LEDState enum
-                    System.out.println("Invalid choice. No action taken."+ "\u001B[33m(LED : " + ledStatus.name() + ")\u001B[0m");
+                        // Process the user's choice
+                        if (choice == 1) {
+                            myBottleDepositMachine.clickOn("Print the receipt");
+                            break; // Exit the loop after a valid choice
+                        } else if (choice == 2) {
+                            myBottleDepositMachine.clickOn("Donation");
+                            break; // Exit the loop after a valid choice
+                        } else {
+                            ledStatus = LEDState.YELLOW; // Use LEDState enum
+                            System.out.println("Invalid choice. No action taken." );
+                        }
+                    } catch (NumberFormatException e) {
+                        ledStatus = LEDState.YELLOW; // Use LEDState enum
+                    }
                 }
+
                 System.out.print("______________________________________________________________ \n");
                 // System.out.print("_______________________________________________________________ \n");
             } catch (NumberFormatException e) {

@@ -60,12 +60,12 @@ public class BottleDepositMachine {
     }
 
     public void inputBottle(Item item) {
-        controlUnit.processBottle(item);
+
         System.out.println("________________________________________________________________________________________________");
         System.out.println("Customer inserted a bottle");
         System.out.println("Processing new bottle | please wait " +
                 "\u001B[31m(LED : " + ledStatus.name() + ")\u001B[0m");
-
+        controlUnit.processBottle(item);
 
     }
 
