@@ -29,8 +29,9 @@ public class Application {
 
         while (true) { // we use while because the bottle deposit Machine is always on
             try {
-                // Prompt user for the number of bottles to add
-                System.out.print("Please enter the number of bottles to add : ");
+                // Prompt user for the number of bottles to add#
+                ledStatus = LEDState.GREEN ;
+                System.out.print("Please enter the number of bottles to add : " + "\u001B[32m(LED : " + ledStatus.name() + ")\u001B[0m");
                 String input = scanner.nextLine();
 
                 if (input.equalsIgnoreCase("exit")) {
