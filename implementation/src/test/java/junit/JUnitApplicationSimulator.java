@@ -1,4 +1,4 @@
-package jgiven;
+package junit;
 
 import BottleDepositMachine.BottleDepositMachine;
 import BottleDepositMachine.Hardware.CardScanner;
@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @DisplayName("Bottle Deposit Machine Simulator Tests")
-class JGivenApplicationSimulator {
+class JUnitApplicationSimulator {
     private BottleDepositMachine bottleDepositMachine;
     private CardScanner cardScanner;
     private Display display;
