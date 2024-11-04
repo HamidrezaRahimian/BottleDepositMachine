@@ -1,0 +1,229 @@
+{
+  "className": "BDDTest7and8",
+  "name": "Bottle Deposit Machine BDD Tests",
+  "scenarios": [
+    {
+      "className": "BDDTest7and8",
+      "testMethodName": "bottle_deposit_machine_simulation_test_7",
+      "description": "bottle deposit machine simulation test 7",
+      "tagIds": [],
+      "explicitParameters": [],
+      "derivedParameters": [],
+      "scenarioCases": [
+        {
+          "caseNr": 1,
+          "steps": [
+            {
+              "name": "the machine is ready with test items for test 7",
+              "words": [
+                {
+                  "value": "Given",
+                  "isIntroWord": true
+                },
+                {
+                  "value": "the machine is ready with test items for test 7"
+                }
+              ],
+              "status": "PASSED",
+              "durationInNanos": 20690300,
+              "depth": 0,
+              "parentFailed": false
+            },
+            {
+              "name": "the simulation is run",
+              "words": [
+                {
+                  "value": "When",
+                  "isIntroWord": true
+                },
+                {
+                  "value": "the simulation is run"
+                }
+              ],
+              "status": "PASSED",
+              "durationInNanos": 48302901,
+              "depth": 0,
+              "parentFailed": false
+            },
+            {
+              "name": "all counts and totals should be correct for test 7",
+              "words": [
+                {
+                  "value": "Then",
+                  "isIntroWord": true
+                },
+                {
+                  "value": "all counts and totals should be correct for test 7"
+                },
+                {
+                  "value": "2",
+                  "argumentInfo": {
+                    "argumentName": "expectedReusableCount",
+                    "formattedValue": "2"
+                  }
+                },
+                {
+                  "value": "2",
+                  "argumentInfo": {
+                    "argumentName": "expectedDisposableCount",
+                    "formattedValue": "2"
+                  }
+                },
+                {
+                  "value": "3",
+                  "argumentInfo": {
+                    "argumentName": "expectedNonAcceptedCount",
+                    "formattedValue": "3"
+                  }
+                },
+                {
+                  "value": "0.5",
+                  "argumentInfo": {
+                    "argumentName": "expectedDisposableTotal",
+                    "formattedValue": "0.5"
+                  }
+                },
+                {
+                  "value": "1.75",
+                  "argumentInfo": {
+                    "argumentName": "expectedReusableTotal",
+                    "formattedValue": "1.75"
+                  }
+                },
+                {
+                  "value": "2.25",
+                  "argumentInfo": {
+                    "argumentName": "expectedTotalForAll",
+                    "formattedValue": "2.25"
+                  }
+                }
+              ],
+              "status": "PASSED",
+              "durationInNanos": 16502400,
+              "depth": 0,
+              "parentFailed": false
+            }
+          ],
+          "explicitArguments": [],
+          "derivedArguments": [],
+          "status": "SUCCESS",
+          "durationInNanos": 110348099
+        }
+      ],
+      "casesAsTable": false,
+      "durationInNanos": 110348099
+    },
+    {
+      "className": "BDDTest7and8",
+      "testMethodName": "bottle_deposit_machine_simulation_test_8",
+      "description": "bottle deposit machine simulation test 8",
+      "tagIds": [],
+      "explicitParameters": [],
+      "derivedParameters": [],
+      "scenarioCases": [
+        {
+          "caseNr": 1,
+          "steps": [
+            {
+              "name": "the machine is ready with test items for test 8",
+              "words": [
+                {
+                  "value": "Given",
+                  "isIntroWord": true
+                },
+                {
+                  "value": "the machine is ready with test items for test 8"
+                }
+              ],
+              "status": "PASSED",
+              "durationInNanos": 101600,
+              "depth": 0,
+              "parentFailed": false
+            },
+            {
+              "name": "the simulation is run",
+              "words": [
+                {
+                  "value": "When",
+                  "isIntroWord": true
+                },
+                {
+                  "value": "the simulation is run"
+                }
+              ],
+              "status": "PASSED",
+              "durationInNanos": 4024000,
+              "depth": 0,
+              "parentFailed": false
+            },
+            {
+              "name": "all counts and totals should be correct for test 8",
+              "words": [
+                {
+                  "value": "Then",
+                  "isIntroWord": true
+                },
+                {
+                  "value": "all counts and totals should be correct for test 8"
+                },
+                {
+                  "value": "3",
+                  "argumentInfo": {
+                    "argumentName": "expectedReusableCount",
+                    "formattedValue": "3"
+                  }
+                },
+                {
+                  "value": "1",
+                  "argumentInfo": {
+                    "argumentName": "expectedDisposableCount",
+                    "formattedValue": "1"
+                  }
+                },
+                {
+                  "value": "4",
+                  "argumentInfo": {
+                    "argumentName": "expectedNonAcceptedCount",
+                    "formattedValue": "4"
+                  }
+                },
+                {
+                  "value": "0.25",
+                  "argumentInfo": {
+                    "argumentName": "expectedDisposableTotal",
+                    "formattedValue": "0.25"
+                  }
+                },
+                {
+                  "value": "3.05",
+                  "argumentInfo": {
+                    "argumentName": "expectedReusableTotal",
+                    "formattedValue": "3.05"
+                  }
+                },
+                {
+                  "value": "3.3",
+                  "argumentInfo": {
+                    "argumentName": "expectedTotalForAll",
+                    "formattedValue": "3.3"
+                  }
+                }
+              ],
+              "status": "PASSED",
+              "durationInNanos": 1681901,
+              "depth": 0,
+              "parentFailed": false
+            }
+          ],
+          "explicitArguments": [],
+          "derivedArguments": [],
+          "status": "SUCCESS",
+          "durationInNanos": 6391501
+        }
+      ],
+      "casesAsTable": false,
+      "durationInNanos": 6391501
+    }
+  ],
+  "tagMap": {}
+}

@@ -1,0 +1,198 @@
+{
+  "className": "BottleDepositMachineBDDTest",
+  "name": "Bottle Deposit Machine BDD Tests",
+  "scenarios": [
+    {
+      "className": "BottleDepositMachineBDDTest",
+      "testMethodName": "bottle_deposit_machine_simulation_test",
+      "description": "bottle deposit machine simulation test",
+      "tagIds": [],
+      "explicitParameters": [],
+      "derivedParameters": [],
+      "scenarioCases": [
+        {
+          "caseNr": 1,
+          "steps": [
+            {
+              "name": "the machine is ready with test items",
+              "words": [
+                {
+                  "value": "Given",
+                  "isIntroWord": true
+                },
+                {
+                  "value": "the machine is ready with test items"
+                }
+              ],
+              "status": "PASSED",
+              "durationInNanos": 19625100,
+              "depth": 0,
+              "parentFailed": false
+            },
+            {
+              "name": "the simulation is run",
+              "words": [
+                {
+                  "value": "When",
+                  "isIntroWord": true
+                },
+                {
+                  "value": "the simulation is run"
+                }
+              ],
+              "status": "PASSED",
+              "durationInNanos": 36737700,
+              "depth": 0,
+              "parentFailed": false
+            },
+            {
+              "name": "the reusable count should be",
+              "words": [
+                {
+                  "value": "Then",
+                  "isIntroWord": true
+                },
+                {
+                  "value": "the reusable count should be"
+                },
+                {
+                  "value": "3",
+                  "argumentInfo": {
+                    "argumentName": "expected",
+                    "formattedValue": "3"
+                  }
+                }
+              ],
+              "status": "PASSED",
+              "durationInNanos": 8863700,
+              "depth": 0,
+              "parentFailed": false
+            },
+            {
+              "name": "the disposable count should be",
+              "words": [
+                {
+                  "value": "and",
+                  "isIntroWord": true
+                },
+                {
+                  "value": "the disposable count should be"
+                },
+                {
+                  "value": "1",
+                  "argumentInfo": {
+                    "argumentName": "expected",
+                    "formattedValue": "1"
+                  }
+                }
+              ],
+              "status": "PASSED",
+              "durationInNanos": 716100,
+              "depth": 0,
+              "parentFailed": false
+            },
+            {
+              "name": "the non accepted count should be",
+              "words": [
+                {
+                  "value": "and",
+                  "isIntroWord": true
+                },
+                {
+                  "value": "the non accepted count should be"
+                },
+                {
+                  "value": "3",
+                  "argumentInfo": {
+                    "argumentName": "expected",
+                    "formattedValue": "3"
+                  }
+                }
+              ],
+              "status": "PASSED",
+              "durationInNanos": 457300,
+              "depth": 0,
+              "parentFailed": false
+            },
+            {
+              "name": "the disposable total should be",
+              "words": [
+                {
+                  "value": "and",
+                  "isIntroWord": true
+                },
+                {
+                  "value": "the disposable total should be"
+                },
+                {
+                  "value": "0.25",
+                  "argumentInfo": {
+                    "argumentName": "expected",
+                    "formattedValue": "0.25"
+                  }
+                }
+              ],
+              "status": "PASSED",
+              "durationInNanos": 1547500,
+              "depth": 0,
+              "parentFailed": false
+            },
+            {
+              "name": "the reusable total should be",
+              "words": [
+                {
+                  "value": "and",
+                  "isIntroWord": true
+                },
+                {
+                  "value": "the reusable total should be"
+                },
+                {
+                  "value": "2.25",
+                  "argumentInfo": {
+                    "argumentName": "expected",
+                    "formattedValue": "2.25"
+                  }
+                }
+              ],
+              "status": "PASSED",
+              "durationInNanos": 504800,
+              "depth": 0,
+              "parentFailed": false
+            },
+            {
+              "name": "the total for all should be",
+              "words": [
+                {
+                  "value": "and",
+                  "isIntroWord": true
+                },
+                {
+                  "value": "the total for all should be"
+                },
+                {
+                  "value": "2.5",
+                  "argumentInfo": {
+                    "argumentName": "expected",
+                    "formattedValue": "2.5"
+                  }
+                }
+              ],
+              "status": "PASSED",
+              "durationInNanos": 421100,
+              "depth": 0,
+              "parentFailed": false
+            }
+          ],
+          "explicitArguments": [],
+          "derivedArguments": [],
+          "status": "SUCCESS",
+          "durationInNanos": 93909300
+        }
+      ],
+      "casesAsTable": false,
+      "durationInNanos": 93909300
+    }
+  ],
+  "tagMap": {}
+}

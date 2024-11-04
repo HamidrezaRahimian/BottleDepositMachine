@@ -8,6 +8,8 @@ public class ListOfItems {
     private List<Item> myListOfItems;
     private List<Item> listOfNotAcceptableItems;
 
+
+    // this data are used mostly for testing the machine , there is a InMemoryDatabase as spcification so dont worry :D
     public ListOfItems() {
         myListOfItems = new ArrayList<>();
         listOfNotAcceptableItems = new ArrayList<>();
@@ -31,10 +33,6 @@ public class ListOfItems {
         listOfNotAcceptableItems.add(new Item("Z Bottle | 0.5L", "5jrsqeg201", "Not Accepted", "Plastic", 0.00));
         listOfNotAcceptableItems.add(new Item("Z Bottle | 1L ", "pv4og90ymi", "Not Accepted", "Plastic", 0.00));
     }
-
-
-
-
 
     public List<Item> getItems() {
         List<Item> combinedList = new ArrayList<>(myListOfItems);
