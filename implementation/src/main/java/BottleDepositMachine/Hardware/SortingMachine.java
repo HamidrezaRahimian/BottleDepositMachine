@@ -26,6 +26,7 @@ public class SortingMachine {
     public void sortMovedItem(String[] scannedItem) {
         String type = scannedItem[2];
         String material = scannedItem[3];
+        String price = scannedItem[4];
 
         if ("Disposable".equals(type) && "Metal".equals(material)) {
             System.out.println("bottle moved to Crusher to be crushed");
@@ -48,6 +49,7 @@ public class SortingMachine {
             System.out.println("bottle moved to GlassCollectionBin");
             return;
         }
+
         System.out.println("**type** "+ type + "****" + scannedItem[2] );
         System.out.println("**material** "+ material + "****" + scannedItem[3] );
         System.out.println("Invalid Bottle Type in Sorting Machine");

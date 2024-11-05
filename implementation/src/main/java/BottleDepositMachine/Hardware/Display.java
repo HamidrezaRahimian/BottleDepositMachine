@@ -49,8 +49,9 @@ public class Display {
         if (recieptButton) {
             recieptButton = false;
             donationButton = false;
-            ledStatus = LEDState.GREEN;
-            System.out.println("Receipt has been printed " + "\u001B[32m(LED : " + ledStatus.name() + ")\u001B[0m");
+            ledStatus = LEDState.YELLOW;
+            System.out.println("Receipt has been printed " + "\u001B[33m(LED : " + ledStatus.name() + ")\u001B[0m");
+            System.out.println("Place your smartphone on reader." + "\u001B[33m(LED : " + ledStatus.name() + ")\u001B[0m");
             controlUnit.printReceipt();
         }else{
             System.out.println("printing receipt is not possible , please make sure to insert the bottles first");
