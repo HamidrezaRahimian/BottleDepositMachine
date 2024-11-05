@@ -25,7 +25,7 @@
                 }
               ],
               "status": "PASSED",
-              "durationInNanos": 60614300,
+              "durationInNanos": 27387000,
               "depth": 0,
               "parentFailed": false
             },
@@ -41,7 +41,7 @@
                 }
               ],
               "status": "PASSED",
-              "durationInNanos": 78470700,
+              "durationInNanos": 56990500,
               "depth": 0,
               "parentFailed": false
             },
@@ -99,7 +99,7 @@
                 }
               ],
               "status": "PASSED",
-              "durationInNanos": 20132200,
+              "durationInNanos": 18082100,
               "depth": 0,
               "parentFailed": false
             }
@@ -107,11 +107,11 @@
           "explicitArguments": [],
           "derivedArguments": [],
           "status": "SUCCESS",
-          "durationInNanos": 187034700
+          "durationInNanos": 135065900
         }
       ],
       "casesAsTable": false,
-      "durationInNanos": 187034700
+      "durationInNanos": 135065900
     },
     {
       "className": "JGivenBDDTest7and8",
@@ -136,7 +136,7 @@
                 }
               ],
               "status": "PASSED",
-              "durationInNanos": 237000,
+              "durationInNanos": 218100,
               "depth": 0,
               "parentFailed": false
             },
@@ -152,7 +152,7 @@
                 }
               ],
               "status": "PASSED",
-              "durationInNanos": 14725700,
+              "durationInNanos": 10823400,
               "depth": 0,
               "parentFailed": false
             },
@@ -210,7 +210,7 @@
                 }
               ],
               "status": "PASSED",
-              "durationInNanos": 3241600,
+              "durationInNanos": 1829600,
               "depth": 0,
               "parentFailed": false
             }
@@ -218,11 +218,11 @@
           "explicitArguments": [],
           "derivedArguments": [],
           "status": "SUCCESS",
-          "durationInNanos": 19293700
+          "durationInNanos": 13929600
         }
       ],
       "casesAsTable": false,
-      "durationInNanos": 19293700
+      "durationInNanos": 13929600
     }
   ],
   "tagMap": {}
