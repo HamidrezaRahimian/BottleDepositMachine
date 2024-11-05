@@ -25,7 +25,7 @@
                 }
               ],
               "status": "PASSED",
-              "durationInNanos": 14543000,
+              "durationInNanos": 60614300,
               "depth": 0,
               "parentFailed": false
             },
@@ -41,7 +41,7 @@
                 }
               ],
               "status": "PASSED",
-              "durationInNanos": 48370000,
+              "durationInNanos": 78470700,
               "depth": 0,
               "parentFailed": false
             },
@@ -99,7 +99,7 @@
                 }
               ],
               "status": "PASSED",
-              "durationInNanos": 13830500,
+              "durationInNanos": 20132200,
               "depth": 0,
               "parentFailed": false
             }
@@ -107,11 +107,11 @@
           "explicitArguments": [],
           "derivedArguments": [],
           "status": "SUCCESS",
-          "durationInNanos": 94920100
+          "durationInNanos": 187034700
         }
       ],
       "casesAsTable": false,
-      "durationInNanos": 94920100
+      "durationInNanos": 187034700
     },
     {
       "className": "JGivenBDDTest7and8",
@@ -136,7 +136,7 @@
                 }
               ],
               "status": "PASSED",
-              "durationInNanos": 101300,
+              "durationInNanos": 237000,
               "depth": 0,
               "parentFailed": false
             },
@@ -152,7 +152,7 @@
                 }
               ],
               "status": "PASSED",
-              "durationInNanos": 3635100,
+              "durationInNanos": 14725700,
               "depth": 0,
               "parentFailed": false
             },
@@ -210,7 +210,7 @@
                 }
               ],
               "status": "PASSED",
-              "durationInNanos": 1233300,
+              "durationInNanos": 3241600,
               "depth": 0,
               "parentFailed": false
             }
@@ -218,11 +218,11 @@
           "explicitArguments": [],
           "derivedArguments": [],
           "status": "SUCCESS",
-          "durationInNanos": 5536200
+          "durationInNanos": 19293700
         }
       ],
       "casesAsTable": false,
-      "durationInNanos": 5536200
+      "durationInNanos": 19293700
     }
   ],
   "tagMap": {}

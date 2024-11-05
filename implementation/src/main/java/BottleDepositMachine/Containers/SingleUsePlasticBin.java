@@ -1,23 +1,22 @@
 package BottleDepositMachine.Containers;
 
 import BottleDepositMachine.Software.LEDState;
+import BottleDepositMachine.Software.MyStackArray;
 import Items.Item;
 
-import java.util.Stack;
-
 public class SingleUsePlasticBin {
-    private Stack<Item> Container;
+    private MyStackArray<Item> container;  // Use MyStackArray instead of Stack
     private LEDState ledStatus; // Changed from String to LEDState
 
     public SingleUsePlasticBin() {
-        this.Container = new Stack<>();
+        this.container = new MyStackArray<>(100);  // Set capacity to 100 (or any desired value)
     }
+
     public void addToContainer(Item movedItem) {
-        this.Container.push(movedItem);
+        this.container.push(movedItem);
         ledStatus = LEDState.GREEN; // Use LEDState enum
 
         System.out.println("Item is placed in the container successfully" +
                 " \u001B[32m(LED : " + ledStatus.name() + ")\u001B[0m");
-
     }
 }

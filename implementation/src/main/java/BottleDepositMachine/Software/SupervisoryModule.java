@@ -1,6 +1,7 @@
 package BottleDepositMachine.Software;
 
 import BottleDepositMachine.BottleDepositMachine;
+import BottleDepositMachine.Containers.WasteBin;
 import BottleDepositMachine.Hardware.*;
 import Items.Item;
 
@@ -17,6 +18,7 @@ public class SupervisoryModule {
     private Compactor crusher;
     private DonationDatabase donationDatabase;
     private Printer printer;
+    private WasteBin bin ;
 
     public SupervisoryModule(BottleDepositMachine bottleDepositMachine, CardScanner cardScanner, Display display,ReceiptProcessor receiptProcessor) {
         this.bottleDepositMachine = bottleDepositMachine;
@@ -32,6 +34,8 @@ public class SupervisoryModule {
         this.crusher = new Compactor();
         this.donationDatabase = new DonationDatabase();
         this.printer = new Printer();
+        this.bin = new WasteBin();
+
     }
 
     public void scanIDCard(String employeeId) {
@@ -49,6 +53,7 @@ public class SupervisoryModule {
                 receiptProcessor.addNonAcceptedItem();
                 bottleDepositMachine.changeStateToRequireAction();
                 displayMessage("User removed the bottle from the Entry port");
+                bin.throwAwayBottle(item);
                 bottleDepositMachine.changeStateToReady();
             } else {
                 receiptProcessor.addItemToReceipt(scannedItem);

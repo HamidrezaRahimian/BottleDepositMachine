@@ -2,23 +2,25 @@ package Items;
 
 import lombok.Data;
 
-
-import java.util.Random;
+// Import the custom random class
+import BottleDepositMachine.Software.MersennerTwisterFast;
 
 @Data
 public class Item {
     private double depositAmount;
     private int rotation;
     private boolean crushed;
-     private String frontLabel;
+    private String frontLabel;
     private BackLabel backLabel;
-     private String recyclingType;
+    private String recyclingType;
     private String materialType;
-    public static final Random random = new Random();
 
-       // app will randomly choose the right degree of Rotation to scan
+    // Initialize the custom random generator
+    private static final MersennerTwisterFast customRandom = new MersennerTwisterFast();
+
+    // App will randomly choose the right degree of rotation to scan
     private int getRandomRotationRightDegree() {
-        return switch (random.nextInt(4)) {
+        return switch (customRandom.nextInt(4)) {
             case 0 -> 0;
             case 1 -> 90;
             case 2 -> 180;
@@ -31,7 +33,7 @@ public class Item {
         return switch (rotation) {
             case 0 -> frontLabel;
             case 180 -> backLabel.getBarcode();
-            default -> "no label detected"; // in other degree there is no Label
+            default -> "no label detected"; // In other degrees, there is no label
         };
     }
 
@@ -39,7 +41,7 @@ public class Item {
         if (rotation == 0 || rotation == 90 || rotation == 180 || rotation == 270) {
             this.rotation = rotation;
         } else {
-            throw new IllegalArgumentException("shape of bottle is super weird so that we can define any specific degree and it so it's not cubic form ");
+            throw new IllegalArgumentException("Shape of bottle is super weird, cannot define any specific degree as it's not in cubic form.");
         }
     }
 
@@ -51,6 +53,4 @@ public class Item {
         this.depositAmount = depositAmount;
         this.rotation = getRandomRotationRightDegree();
     }
-
-
 }
